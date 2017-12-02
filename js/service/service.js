@@ -6,7 +6,7 @@
 
         const _getList = (cb) => {
             cb = cb || function () {};
-            $http.get('/api/lists')
+            $http.get('http://localhost:3000/api/lists')
                 .then((data) => {
                     cb(data);
                 })
@@ -15,7 +15,7 @@
         const _getIdList = (id,cb)=>{
             cb = cb|| function(){};
             
-            $http.get('api/lists/'+id)
+            $http.get('http://localhost:3000/api/lists/'+id)
             .then((res) => {
                 console.log(`cb dbIdList :  ${JSON.stringify(res.data.list)}`)
                 cb(res)
@@ -26,7 +26,7 @@
         }
         // funkcja do dodawania wybranej listy TODO kolejnego zadania
         const _addList = (id, data)=>{  
-            $http.put('api/lists/'+id , data)
+            $http.put('http://localhost:3000/api/lists/'+id , data)
             .then((data)=>{
                 console.log(`editList :  ${data}`)
             })
@@ -37,7 +37,7 @@
         // funkcja do create new list
 
         const _createList = (data)=>{
-            $http.post('api/new' ,data)
+            $http.post('http://localhost:3000/api/new' ,data)
             .then((data)=>{
                 console.log(`newList :  ${data}`)
             })

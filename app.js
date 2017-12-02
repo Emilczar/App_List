@@ -1,52 +1,13 @@
-const app = angular.module('myApp', ['ngRoute', 'dbService']);
+(function() {
 
-app.config(['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) => {
 
-    $routeProvider
-        .when('/lists', {
-            controller: 'ContrList',
-            templateUrl: '/views/lists.html'
-        })
-        .when('/lists/:id', {
-            controller: 'ContrIdList',
-            templateUrl: '/views/list_id.html'
-        })
-        .when('/lists/zm/:id', {
-            controller: 'ContrIdEdit',
-            templateUrl: '/views/edycja_id.html'
-
-        })
-        .when('/new', {
-            controller: 'ContrNew',
-            templateUrl: '/views/new.html'
-
-        })
-        .when('/inne', {
-            templateUrl: '/views/inne.html',
-        })
-
-        .otherwise({
-            redirectTo: '/inne'
-        })
-
-    $locationProvider
-        .html5Mode(true);
-
-}])
+    
+const app = angular.module('myApp', ['routerApp']);
 
 
 
 
-// controler do pobrania calej listy TODO
-app.controller('ContrList', ['$scope', 'dbList', function ($scope, dbList) {
 
-    $scope.lists = {};
-    dbList.getList((res) => {
-        $scope.lists = res.data;
-
-    })
-    console.log("wynik     " + $scope.lists);
-}])
 //testy
 
 // controler do pobrania dokladej listy zadan po ID 
@@ -100,8 +61,6 @@ app.controller('ContrNew', ['$scope', '$window', 'dbList', function ($scope, $wi
           trzeba dodac funckje która wyswietli ze nic nie dodalismy
 
         */
-
-
         }
 
         // dodawanie wartosci do tablicy zadań
@@ -152,3 +111,7 @@ app.controller('ContrIdEdit', ['$scope', 'dbList', '$routeParams', function ($sc
     dbList.addList($routeParams.id, data)
 
 }])
+
+
+
+})();

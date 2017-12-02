@@ -24,6 +24,13 @@
     "mongoose": "^4.11.7"
   },
   "devDependencies": {
-    "bower": "^1.8.0"
+    "bower": "^1.8.0",
+    "gulp": "^3.9.1",
+    "gulp-ng-html2js": "^0.2.2"
+  },
+
+  "scripts": 
+  {
+  "start": "http-server ./ -a localhost -p 8000 -c-1"
   }
 }
