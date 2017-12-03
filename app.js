@@ -1,15 +1,7 @@
 (function() {
 
-
-    
+   
 const app = angular.module('myApp', ['routerApp']);
-
-
-
-
-
-//testy
-
 // controler do pobrania dokladej listy zadan po ID 
 app.controller('ContrIdList', ['$scope', 'dbList', '$routeParams', '$window', function ($scope, dbList, $routeParams, $window) {
     $scope.list = {};
